@@ -5,23 +5,10 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-private const val androidPlugin = "com.android.application"
-private const val kotlinAndroidPlugin = "kotlin-android"
-
-class AndroidGradlePlugin : Plugin<Project> {
-
-    override fun apply(target: Project) {
-        target.plugins.run {
-            apply(androidPlugin)
-            apply(kotlinAndroidPlugin)
-        }
-    }
-}
-
 private const val compile_sdk_version = 30
 private const val build_tools_version = "30.0.3"
 
-private const val application_id = "com.logoped583st.logopedTools"
+const val application_id = "com.logoped583st.logopedTools"
 private const val min_sdk = 21
 private const val target_sdk = compile_sdk_version
 
@@ -36,7 +23,6 @@ fun BaseExtension.setupConfig() {
     buildToolsVersion(build_tools_version)
 
     defaultConfig {
-        applicationId = application_id
         minSdk = min_sdk
         targetSdk = target_sdk
 

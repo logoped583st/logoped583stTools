@@ -29,12 +29,3 @@ configurations.all {
         force("org.jetbrains.kotlin:kotlin-stdlib:1.3.72")
     }
 }
-
-gradlePlugin {
-    plugins {
-        create("AndroidGradlePlugin") {
-            id = "AndroidGradlePlugin"
-            implementationClass = "com.logoped583st.buildsrc.AndroidGradlePlugin"
-        }
-    }
-}

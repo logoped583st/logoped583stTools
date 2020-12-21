@@ -1,0 +1,155 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LogopedComponents" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!--    Text appearances    -->
+        <item name="android:textViewStyle">@style/TextAppearance.Logoped.Usual</item>
+        <item name="android:textAppearance">@style/TextAppearance.Logoped.Usual</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Logoped.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Logoped.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Logoped.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Logoped.Caption</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Logoped.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Logoped.Subtitle2</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Logoped.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Logoped.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Logoped.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Logoped.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Logoped.Headline6</item>
+
+        <!-- Widgets -->
+        <item name="materialButtonStyle">@style/Widget.Logoped.Button</item>
+        <item name="imageButtonStyle">@style/Widget.Logoped.ImageButton</item>
+
+    </style>
+
+    <style name="TextAppearance.Logoped.Usual" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="lineSpacing">12dp</item>
+        <item name="lineHeight">12dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <style name="TextAppearance.Logoped.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="lineSpacing">16dp</item>
+        <item name="lineHeight">16dp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <!-- There is no corresponding attribute so it's okay to use this style directly -->
+    <!-- 10sp Medium, to make bold apply android:textStyle="bold" on TextView -->
+    <style name="TextAppearance.Logoped.Caption.Small">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!--  Do not apply this style directly, use ?attr/textAppearanceHeadline3 instead -->
+    <!-- 44sp Bold -->
+    <style name="TextAppearance.Logoped.Headline2" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">44sp</item>
+        <item name="lineSpacing">32dp</item>
+        <item name="lineHeight">32dp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <!--  Do not apply this style directly, use ?attr/textAppearanceHeadline3 instead -->
+    <!-- 32sp Bold -->
+    <!-- Title / 32-32 - bold amount -->
+    <style name="TextAppearance.Logoped.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="lineSpacing">32dp</item>
+        <item name="lineHeight">32dp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <!--  Do not apply this style directly, use ?attr/textAppearanceHeadline4 instead -->
+    <!-- 24sp Bold -->
+    <!-- Title / 24-28 - super big amount on home screen -->
+    <style name="TextAppearance.Logoped.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineSpacing">32dp</item>
+        <item name="lineHeight">32dp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <!--  Do not apply this style directly, use ?attr/textAppearanceHeadline5 instead -->
+    <!-- 20sp Medium, to make bold apply android:textStyle="bold" on TextView -->
+    <!-- Title / 20-28 Medium Main - Usual page title everywhere -->
+    <style name="TextAppearance.Logoped.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">20sp</item>
+        <item name="lineSpacing">28dp</item>
+        <item name="lineHeight">28dp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <!--  Do not apply this style directly, use ?attr/textAppearanceHeadline6 instead -->
+    <!-- 18sp Bold -->
+    <style name="TextAppearance.Logoped.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineSpacing">24dp</item>
+        <item name="lineHeight">24dp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+
+    <!--  By default used in all inputs  -->
+    <!--  Do not apply this style directly, use ?attr/textAppearanceSubtitle1 instead -->
+    <!-- 18sp Regular, to make bold apply android:textStyle="bold" on TextView -->
+    <!-- Input / 18-20 Medium - All inputs -->
+    <style name="TextAppearance.Logoped.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">18sp</item>
+        <item name="lineSpacing">20dp</item>
+        <item name="lineHeight">20dp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <!--  Do not apply this style directly, use ?attr/textAppearanceSubtitle2 instead -->
+    <!-- 16sp Regular, to make bold apply android:textStyle="bold" on TextView -->
+    <!-- Input / 16-20 Medium - Inputs Text Validated -->
+    <style name="TextAppearance.Logoped.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">16sp</item>
+        <item name="lineSpacing">24dp</item>
+        <item name="lineHeight">24dp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+
+    <style name="TextAppearance.Logoped.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="lineSpacing">24dp</item>
+        <item name="lineHeight">24dp</item>
+        <item name="android:letterSpacing">0.0</item>
+    </style>
+
+    <!--  Do not apply this style directly, use ?attr/textAppearanceBody2 instead -->
+    <!-- 14sp Medium, to make bold apply android:textStyle="bold" on TextView -->
+    <!-- Body / 14-20 Medium - Highlighted text, titles in line items (like transaction, notification etc) -->
+    <style name="TextAppearance.Logoped.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="lineSpacing">20dp</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="TextAppearance.Logoped.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textStyle">bold</item>
+        <item name="lineSpacing">20dp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="Widget.Logoped.Button" parent="Widget.MaterialComponents.Button" />
+
+    <style name="Widget.Logoped.ImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="tint">?colorControlNormal</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
+    </style>
+
+</resources>
