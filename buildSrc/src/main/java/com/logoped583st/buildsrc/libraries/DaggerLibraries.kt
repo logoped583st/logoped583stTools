@@ -7,7 +7,7 @@ private const val daggerCompilerPackage = "com.google.dagger:dagger-compiler"
 
 private const val daggerVersion = "2.30.1"
 
-internal enum class DaggerLibraries(override val library: Library) : LibraryImporter {
+private enum class DaggerLibraries(override val library: Library) : LibraryImporter {
 
     Dagger(Library(daggerPackage, daggerVersion)),
 

@@ -12,7 +12,7 @@ private const val rxBindingMaterialPackage = "com.jakewharton.rxbinding4:rxbindi
 
 private const val rxBindingVersion = "4.0.0"
 
-internal enum class RxBindingLibraries(override val library: Library) : LibraryImporter {
+private enum class RxBindingLibraries(override val library: Library) : LibraryImporter {
 
     RxBinding(Library(rxBindingPackage, rxBindingVersion)),
 

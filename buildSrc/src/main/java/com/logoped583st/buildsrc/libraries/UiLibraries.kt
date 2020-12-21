@@ -11,7 +11,7 @@ private const val constraintLayoutVersion = "2.0.4"
 private const val viewPager2Package = "androidx.viewpager2:viewpager2"
 private const val viewPager2Version = "1.0.0"
 
-internal enum class UiLibraries(override val library: Library) : LibraryImporter {
+private enum class UiLibraries(override val library: Library) : LibraryImporter {
 
     MaterialUi(Library(materialUiPackage, materialUiVersion)),
 

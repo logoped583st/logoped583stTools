@@ -8,7 +8,7 @@ private const val rxJavaVersion = "3.0.8"
 private const val rxAndroidPackage = "io.reactivex.rxjava3:rxandroid"
 private const val rxAndroidVersion = "3.0.0"
 
-internal enum class RxLibraries(override val library: Library) : LibraryImporter {
+private enum class RxLibraries(override val library: Library) : LibraryImporter {
 
     RxJava(Library(rxJavaPackage, rxJavaVersion)),
 

@@ -11,7 +11,7 @@ private const val mockitoVersion = "1.10.19"
 private const val androidXTestCorePackage = "androidx.test:core"
 private const val androidXTestCoreVersion = "1.0.0"
 
-internal enum class UnitTestsLibraries(override val library: Library) : LibraryImporter {
+private enum class UnitTestsLibraries(override val library: Library) : LibraryImporter {
 
     Junit(Library(junitPackage, junitVersion)),
 
