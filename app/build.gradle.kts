@@ -13,6 +13,10 @@ android {
     defaultConfig {
         applicationId = com.logoped583st.buildsrc.application_id
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {

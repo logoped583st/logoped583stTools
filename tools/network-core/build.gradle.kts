@@ -8,9 +8,17 @@ plugins {
     `kotlin-kapt`
 }
 
+
+//kapt {
+//    generateStubs = true
+//    javacOptions {
+//        option("-Xmaxerrs", 500)
+//    }
+//}
+
 dependencies {
     kotlin()
+    gson()
     network()
     dagger()
-    gson()
 }
