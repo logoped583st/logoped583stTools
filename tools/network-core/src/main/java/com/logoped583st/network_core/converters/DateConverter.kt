@@ -1,4 +1,4 @@
-package com.example.network_core.converters
+package com.logoped583st.network_core.converters
 
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer

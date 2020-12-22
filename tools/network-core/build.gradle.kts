@@ -9,14 +9,10 @@ plugins {
 }
 
 
-//kapt {
-//    generateStubs = true
-//    javacOptions {
-//        option("-Xmaxerrs", 500)
-//    }
-//}
-
 dependencies {
+
+    implementation(project(":dagger-component-connector"))
+
     kotlin()
     gson()
     network()

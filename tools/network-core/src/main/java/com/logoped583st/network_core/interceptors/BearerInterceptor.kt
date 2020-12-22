@@ -1,4 +1,4 @@
-package com.example.network_core.interceptors
+package com.logoped583st.network_core.interceptors
 
 import okhttp3.Interceptor
 import okhttp3.Response
