@@ -5,5 +5,5 @@ include(":dagger-component-connector")
 
 
 //Tools
-include(":tools")
 include(":tools:network-core")
+include(":tools:logger")

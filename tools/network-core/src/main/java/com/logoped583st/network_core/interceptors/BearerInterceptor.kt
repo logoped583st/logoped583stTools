@@ -7,7 +7,7 @@ import javax.inject.Inject
 private const val authorizationHeader = "Authorization"
 private const val bearerPrefix = "Bearer"
 
-class BearerInterceptor @Inject constructor(
+internal class BearerInterceptor @Inject constructor(
     private val tokenReceiver: () -> String?
 ) : Interceptor {
 
@@ -21,5 +21,4 @@ class BearerInterceptor @Inject constructor(
             }.build())
         }
     }
-
 }

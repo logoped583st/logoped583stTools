@@ -1,27 +1,59 @@
 package com.logoped583st.buildsrc.libraries
 
 import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.exclude
 
-private const val retrofitPackage = "com.squareup.retrofit2:retrofit"
+private const val retrofitGroup = "com.squareup.retrofit2"
+private const val retrofitModule = "retrofit"
 private const val retrofitGsonPackage = "com.squareup.retrofit2:converter-gson"
 private const val retrofitRxJavaAdapterPackage = "com.squareup.retrofit2:adapter-rxjava3"
-private const val okhttpPackage = "com.squareup.okhttp3:okhttp"
-private const val okhttpLoggingInterceptorPackage = "com.squareup.okhttp3:logging-interceptor"
+private const val okhttpGroup = "com.squareup.okhttp3"
+private const val okhttpModule = "okhttp"
+private const val okhttpLoggingModule = "logging-interceptor"
 
 const val retrofitVersion = "2.9.0"
 const val okhttpVersion = "4.7.2"
 
 private enum class NetworkLibraries(override val library: Library) : LibraryImporter {
 
-    Retrofit(Library(retrofitPackage, retrofitVersion)),
+    Retrofit(Library("$retrofitGroup:$retrofitModule", retrofitVersion)) {
+        override val import: DependencyHandler.() -> Unit = {
+            api(library) {
+                exclude(okhttpGroup, okhttpModule)
+            }
+        }
+    },
 
-    RetrofitGson(Library(retrofitGsonPackage, retrofitVersion)),
+    RetrofitGson(Library(retrofitGsonPackage, retrofitVersion)) {
+        override val import: DependencyHandler.() -> Unit = {
+            api(library) {
+                exclude(okhttpGroup, okhttpModule)
+                exclude(retrofitGroup, retrofitModule)
+            }
+        }
+    },
 
-    RetrofitRxJava(Library(retrofitRxJavaAdapterPackage, retrofitVersion)),
+    RetrofitRxJava(Library(retrofitRxJavaAdapterPackage, retrofitVersion)) {
+        override val import: DependencyHandler.() -> Unit = {
+            implementation(library) {
+                exclude(retrofitGroup, retrofitModule)
+            }
+        }
+    },
 
-    OkHttp(Library(okhttpPackage, okhttpVersion)),
+    OkHttp(Library("$okhttpGroup:$okhttpModule", okhttpVersion)){
+        override val import: DependencyHandler.() -> Unit = {
+            api(library)
+        }
+    },
 
-    OkhttpLogging(Library(okhttpLoggingInterceptorPackage, okhttpVersion));
+    OkhttpLogging(Library("$okhttpGroup:$okhttpLoggingModule", okhttpVersion)){
+        override val import: DependencyHandler.() -> Unit = {
+            implementation(library){
+                exclude(okhttpGroup, okhttpModule)
+            }
+        }
+    };
 
     override val import: DependencyHandler.() -> Unit = {
         implementation(library)

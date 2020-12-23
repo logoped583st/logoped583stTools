@@ -31,4 +31,5 @@ dependencies {
     rxBinding()
     paging()
     unitTests()
+    timber()
 }

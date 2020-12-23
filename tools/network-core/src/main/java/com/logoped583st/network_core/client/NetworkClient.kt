@@ -1,10 +1,8 @@
 package com.logoped583st.network_core.client
 
-import com.logoped583st.network_core.di.LoggingInterceptorQualifier
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializer
-import io.reactivex.rxjava3.schedulers.Schedulers
-import okhttp3.Interceptor
+import io.reactivex.rxjava3.core.Scheduler
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
@@ -22,12 +20,12 @@ interface NetworkClient {
     fun okhttpClient(): OkHttpClient.Builder
 }
 
-class NetworkClientImpl @Inject constructor(
-        @LoggingInterceptorQualifier private val loggingInterceptor: Interceptor,
-        private val dateConverter: JsonDeserializer<Date>,
+internal class NetworkClientImpl @Inject constructor(
+        private val requestScheduler: Scheduler,
+        dateConverter: JsonDeserializer<Date>
 ) : NetworkClient {
 
-    private fun gson() = GsonBuilder()
+    private val gson = GsonBuilder()
             .registerTypeAdapter(Date::class.java, dateConverter)
             .create()
 
@@ -36,12 +34,10 @@ class NetworkClientImpl @Inject constructor(
             .connectTimeout(connectNetworkTimeout, TimeUnit.SECONDS)
             .readTimeout(readNetworkTimeOut, TimeUnit.SECONDS)
             .writeTimeout(writeTimeOut, TimeUnit.SECONDS)
-            .addInterceptor(loggingInterceptor)
-
 
     override fun retrofitClient(baseUrl: String): Retrofit.Builder = Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.createWithScheduler(Schedulers.io()))
-            .addConverterFactory(GsonConverterFactory.create(gson()))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.createWithScheduler(requestScheduler))
+            .addConverterFactory(GsonConverterFactory.create(gson))
 
 }
