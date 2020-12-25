@@ -8,13 +8,13 @@ private const val authorizationHeader = "Authorization"
 private const val bearerPrefix = "Bearer"
 
 internal class BearerInterceptor @Inject constructor(
-    private val tokenReceiver: () -> String?
+    private val tokenRetriever: () -> String?
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         return chain.run {
             proceed(request().newBuilder().apply {
-                val token = tokenReceiver()
+                val token = tokenRetriever()
                 if (!token.isNullOrBlank()) {
                     addHeader(authorizationHeader, "$bearerPrefix $token")
                 }

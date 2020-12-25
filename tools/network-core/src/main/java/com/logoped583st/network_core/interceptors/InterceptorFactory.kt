@@ -13,11 +13,17 @@ enum class InterceptorType {
     Bearer
 }
 
+@Target(
+        AnnotationTarget.FUNCTION,
+        AnnotationTarget.PROPERTY_GETTER,
+        AnnotationTarget.PROPERTY_SETTER
+)
+@Retention(AnnotationRetention.RUNTIME)
 @MapKey
 annotation class InterceptorKey(val type: InterceptorType)
 
 internal class InterceptorFactoryImpl @Inject constructor(
-        private val interceptors: Map<InterceptorType, Interceptor>
+        private val interceptors: Map<InterceptorType, @JvmSuppressWildcards Interceptor>
 ) : InterceptorFactory {
 
     override fun provideInterceptor(type: InterceptorType): Interceptor {

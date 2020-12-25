@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 private const val timeZone = "GMT"
 
-class DateConverter @Inject constructor(): JsonDeserializer<Date> {
+internal class DateConverter @Inject constructor(): JsonDeserializer<Date> {
 
     private val possibleDateFormats = arrayOf(
         "yyyy-MM-dd'T'HH:mm:ssZ",

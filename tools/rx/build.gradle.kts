@@ -1,6 +1,6 @@
 import com.logoped583st.buildsrc.libraries.dagger
-import com.logoped583st.buildsrc.libraries.timber
-import com.logoped583st.buildsrc.setupConfig
+import com.logoped583st.buildsrc.libraries.kotlin
+import com.logoped583st.buildsrc.libraries.rx
 
 plugins {
     `android-library`
@@ -8,14 +8,10 @@ plugins {
     `kotlin-kapt`
 }
 
-android {
-    setupConfig()
-}
-
 dependencies {
     implementation(project(":dagger-component-connector"))
 
-
-    timber()
+    kotlin()
     dagger()
+    rx()
 }

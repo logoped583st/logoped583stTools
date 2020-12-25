@@ -4,12 +4,14 @@ import com.google.gson.JsonDeserializer
 import com.logoped583st.dagger_component_connector.di.Logger
 import com.logoped583st.network_core.client.NetworkClient
 import com.logoped583st.network_core.client.NetworkClientImpl
+import com.logoped583st.network_core.client.TokenAuthenticator
 import com.logoped583st.network_core.converters.DateConverter
 import com.logoped583st.network_core.interceptors.*
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
+import okhttp3.Authenticator
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.*
@@ -35,7 +37,11 @@ internal interface NetworkCoreModule {
     @Singleton
     fun interceptorFactory(interceptorFactory: InterceptorFactoryImpl): InterceptorFactory
 
+    @Binds
+    @Singleton
+    fun bindAuthenticator(authenticator: TokenAuthenticator): Authenticator
 
+    @Module
     companion object {
         @Singleton
         @Provides
@@ -49,12 +55,6 @@ internal interface NetworkCoreModule {
                 }).apply {
                     level = HttpLoggingInterceptor.Level.BODY
                 }
-
-        @Singleton
-        @Provides
-        fun refreshInterceptor(retriever: Refresher): String {
-            return retriever.refresh()
-        }
     }
 
 }
