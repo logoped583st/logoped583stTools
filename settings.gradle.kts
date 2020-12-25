@@ -9,3 +9,4 @@ include(":tools:network-core")
 include(":tools:logger")
 include(":tools:rx")
 
+include(":tools:android-tools")
