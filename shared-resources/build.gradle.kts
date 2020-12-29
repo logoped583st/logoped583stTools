@@ -1,12 +1,12 @@
 import com.logoped583st.buildsrc.libraries.ui
-import com.logoped583st.buildsrc.setupConfig
+import com.logoped583st.buildsrc.setupSdkVersions
 
 plugins {
     `android-library`
 }
 
 android {
-    setupConfig()
+    setupSdkVersions()
 }
 dependencies {
     ui()

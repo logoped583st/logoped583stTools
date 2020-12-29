@@ -1,5 +1,7 @@
 import com.logoped583st.buildsrc.libraries.*
 import com.logoped583st.buildsrc.setupConfig
+import com.logoped583st.buildsrc.setupJava8
+import com.logoped583st.buildsrc.setupSdkVersions
 
 plugins {
     android
@@ -9,11 +11,8 @@ plugins {
 
 android {
     setupConfig()
-
-    defaultConfig {
-        applicationId = com.logoped583st.buildsrc.application_id
-    }
-
+    setupSdkVersions()
+    setupJava8()
     kotlinOptions {
         jvmTarget = "1.8"
     }

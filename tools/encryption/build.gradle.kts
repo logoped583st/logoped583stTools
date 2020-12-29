@@ -1,5 +1,4 @@
 import com.logoped583st.buildsrc.libraries.dagger
-import com.logoped583st.buildsrc.libraries.timber
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
 
@@ -17,7 +16,5 @@ android {
 dependencies {
     implementation(project(":dagger-component-connector"))
 
-
-    timber()
     dagger()
 }

@@ -13,4 +13,8 @@ class LoggerImpl @Inject constructor() : Logger {
     override fun httpLog(message: String) {
         Timber.tag("http").i(message)
     }
+
+    override fun exceptionLog(throwable: Throwable) {
+        Timber.e(throwable)
+    }
 }
