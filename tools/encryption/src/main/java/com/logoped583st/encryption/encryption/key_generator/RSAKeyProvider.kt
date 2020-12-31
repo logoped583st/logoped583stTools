@@ -1,7 +1,6 @@
 package com.logoped583st.encryption.encryption.key_generator
 
 import android.content.Context
-import android.os.Build
 import com.logoped583st.encryption.encryption.KEYSTORE_PROVIDER_ANDROID
 import com.logoped583st.encryption.encryption.TYPE_RSA
 import java.security.KeyPairGenerator
