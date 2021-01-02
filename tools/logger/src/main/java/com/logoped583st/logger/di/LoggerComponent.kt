@@ -5,7 +5,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component
+@Component(modules = [LoggerModule::class])
 internal interface LoggerComponent : LoggerProvider
 
 fun initLoggerComponent(): LoggerProvider {

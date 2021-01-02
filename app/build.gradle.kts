@@ -21,6 +21,10 @@ android {
 dependencies {
 
     implementation(project(":shared-resources"))
+    implementation(project(":dagger-component-connector"))
+    implementation(project(":tools:encryption"))
+    implementation(project(":tools:logger"))
+    implementation(project(":tools:android-tools"))
 
     ui()
     kotlin()

@@ -6,7 +6,7 @@ interface EncryptionProvider {
 
 interface Encryption {
 
-    fun encrypt(string: String): String
+    fun encryptBytes(bytes: ByteArray): ByteArray
 
-    fun decrypt(string: String): String
+    fun decryptBytes(bytes: ByteArray): ByteArray
 }

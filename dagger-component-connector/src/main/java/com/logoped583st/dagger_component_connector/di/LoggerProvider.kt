@@ -7,5 +7,5 @@ interface Logger {
 }
 
 interface LoggerProvider {
-    fun provideLogger(logger: Logger)
+    fun provideLogger(): Logger
 }
