@@ -5,3 +5,4 @@ allprojects {
         maven { url = uri("https://oss.jfrog.org/libs-snapshot") }
     }
 }
+

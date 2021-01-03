@@ -1,4 +1,6 @@
-import com.logoped583st.buildsrc.libraries.*
+import com.logoped583st.buildsrc.libraries.kotlin
+import com.logoped583st.buildsrc.libraries.ktx
+import com.logoped583st.buildsrc.libraries.paging
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
 
@@ -15,9 +17,6 @@ android {
 dependencies {
 
     kotlin()
-    ktx()
     paging()
-    rx()
-    implementation ("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.2.0")
-
+    ktx()
 }
