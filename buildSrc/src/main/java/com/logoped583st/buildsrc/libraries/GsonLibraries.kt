@@ -1,12 +1,9 @@
 package com.logoped583st.buildsrc.libraries
 
-import org.gradle.api.artifacts.dsl.DependencyHandler
+object GsonLibraries {
+    private const val gsonGroup = "com.google.code.gson"
+    private const val gsonModule = "gson"
+    private const val gsonVersion = "2.8.6"
 
-private const val gsonPackage = "com.google.code.gson:gson"
-private const val gsonVersion = "2.8.6"
-
-private val gsonLibrary= Library(gsonPackage, gsonVersion)
-
-fun DependencyHandler.gson(){
-    implementation(gsonLibrary)
+    val gsonLibrary = Library(gsonGroup, gsonModule, gsonVersion)
 }

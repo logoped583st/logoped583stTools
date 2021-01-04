@@ -1,12 +1,10 @@
 package com.logoped583st.buildsrc.libraries
 
-import org.gradle.api.artifacts.dsl.DependencyHandler
+object CiceroneLibraries {
+    const val ciceroneGroup = "com.github.terrakok"
+    const val ciceroneModule = "cicerone"
+    private const val ciceroneVersion = "6.6"
 
-private const val ciceronePackage = "com.github.terrakok:cicerone"
-private const val ciceroneVersion = "6.6"
-
-private val ciceroneLibrary = Library(ciceronePackage, ciceroneVersion)
-
-fun DependencyHandler.cicerone() {
-    implementation(ciceroneLibrary)
+    val ciceroneLibrary = Library(ciceroneGroup, ciceroneModule, ciceroneVersion)
 }
+

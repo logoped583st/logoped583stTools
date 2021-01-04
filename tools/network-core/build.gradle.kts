@@ -1,7 +1,4 @@
-import com.logoped583st.buildsrc.libraries.dagger
-import com.logoped583st.buildsrc.libraries.gson
-import com.logoped583st.buildsrc.libraries.kotlin
-import com.logoped583st.buildsrc.libraries.network
+import com.logoped583st.buildsrc.libraries.*
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
 
@@ -23,8 +20,15 @@ dependencies {
 
     implementation(project(":dagger-component-connector"))
 
-    kotlin()
-    gson()
-    network()
-    dagger()
+    implementation(KotlinLibraries.kotlinLibrary.notation)
+    implementation(GsonLibraries.gsonLibrary.notation)
+
+    implementation(NetworkLibraries.retrofit.notation)
+    implementation(NetworkLibraries.retrofitGson.notation)
+    implementation(NetworkLibraries.retrofitRxConverter.notation)
+    implementation(NetworkLibraries.okhttp.notation)
+    implementation(NetworkLibraries.okhttpLogging.notation)
+
+    implementation(LoggingLibraries.timberLibrary.notation)
+    implementation(DaggerLibraries.daggerLibrary.notation)
 }

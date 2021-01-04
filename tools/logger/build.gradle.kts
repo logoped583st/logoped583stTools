@@ -1,5 +1,5 @@
-import com.logoped583st.buildsrc.libraries.dagger
-import com.logoped583st.buildsrc.libraries.timber
+import com.logoped583st.buildsrc.libraries.DaggerLibraries
+import com.logoped583st.buildsrc.libraries.LoggingLibraries
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
 
@@ -18,6 +18,7 @@ dependencies {
     implementation(project(":dagger-component-connector"))
 
 
-    timber()
-    dagger()
+    implementation(LoggingLibraries.timberLibrary.notation)
+    implementation(DaggerLibraries.daggerLibrary.notation)
+    kapt(DaggerLibraries.daggerCompiler.notation)
 }

@@ -1,4 +1,4 @@
-package com.example.recycler
+package com.example.recycler.viewholder
 
 interface RecyclerItem<U : Any> {
     val unique: U

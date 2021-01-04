@@ -1,7 +1,7 @@
-import com.logoped583st.buildsrc.libraries.dagger
-import com.logoped583st.buildsrc.libraries.ktx
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
+import com.logoped583st.buildsrc.libraries.DaggerLibraries
+import com.logoped583st.buildsrc.libraries.KotlinAndroidExtensions
 
 plugins {
     `android-library`
@@ -17,6 +17,7 @@ android {
 dependencies {
     implementation(project(":dagger-component-connector"))
 
-    ktx()
-    dagger()
+    implementation(KotlinAndroidExtensions.ktxCoreLibrary.notation)
+    implementation(DaggerLibraries.daggerLibrary.notation)
+    kapt(DaggerLibraries.daggerCompiler.notation)
 }

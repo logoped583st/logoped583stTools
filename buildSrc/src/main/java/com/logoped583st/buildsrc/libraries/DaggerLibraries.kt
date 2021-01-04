@@ -1,27 +1,13 @@
 package com.logoped583st.buildsrc.libraries
 
-import org.gradle.api.artifacts.dsl.DependencyHandler
+object DaggerLibraries {
+    private const val daggerGroup = "com.google.dagger"
+    private const val daggerModule = "dagger"
+    private const val daggerCompilerModule = "dagger-compiler"
 
-private const val daggerPackage = "com.google.dagger:dagger"
-private const val daggerCompilerPackage = "com.google.dagger:dagger-compiler"
+    private const val daggerVersion = "2.30.1"
 
-private const val daggerVersion = "2.30.1"
-
-private enum class DaggerLibraries(override val library: Library) : LibraryImporter {
-
-    Dagger(Library(daggerPackage, daggerVersion)),
-
-    DaggerCompiler(Library(daggerCompilerPackage, daggerVersion)) {
-        override val import: DependencyHandler.() -> Unit = {
-            kapt(library)
-        }
-    };
-
-    override val import: DependencyHandler.() -> Unit = {
-        implementation(library)
-    }
+    val daggerLibrary = Library(daggerGroup, daggerModule, daggerVersion)
+    val daggerCompiler = Library(daggerGroup, daggerCompilerModule, daggerVersion)
 }
 
-fun DependencyHandler.dagger() {
-    importFromArray(DaggerLibraries.values())
-}

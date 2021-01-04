@@ -1,8 +1,9 @@
-import com.logoped583st.buildsrc.libraries.kotlin
-import com.logoped583st.buildsrc.libraries.ktx
-import com.logoped583st.buildsrc.libraries.paging
+import com.logoped583st.buildsrc.libraries.KotlinAndroidExtensions
+import com.logoped583st.buildsrc.libraries.KotlinLibraries
+import com.logoped583st.buildsrc.libraries.PagingLibraries
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
+import com.logoped583st.buildsrc.libraries.UiLibraries
 
 plugins {
     `android-library`
@@ -16,7 +17,11 @@ android {
 
 dependencies {
 
-    kotlin()
-    paging()
-    ktx()
+    implementation(KotlinLibraries.kotlinLibrary.notation)
+
+    implementation(PagingLibraries.pagingLibrary.notation)
+    implementation(PagingLibraries.pagingRxLibrary.notation)
+
+    implementation(KotlinAndroidExtensions.ktxCoreLibrary.notation)
+    implementation(UiLibraries.recyclerLibrary.notation)
 }

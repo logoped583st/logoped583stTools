@@ -1,4 +1,4 @@
-import com.logoped583st.buildsrc.libraries.kotlin
+import com.logoped583st.buildsrc.libraries.KotlinLibraries
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
 
@@ -17,5 +17,5 @@ android {
 }
 
 dependencies {
-    kotlin()
+    implementation(KotlinLibraries.kotlinLibrary.notation)
 }

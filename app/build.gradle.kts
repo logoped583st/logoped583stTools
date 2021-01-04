@@ -26,13 +26,14 @@ dependencies {
     implementation(project(":tools:logger"))
     implementation(project(":tools:android-tools"))
 
-    ui()
-    kotlin()
-    ktx()
-    dagger()
-    rx()
-    rxBinding()
-    paging()
-    unitTests()
-    timber()
+    implementation(UiLibraries.constraintLibrary.notation)
+    implementation(UiLibraries.materialLibrary.notation)
+    implementation(KotlinLibraries.kotlinLibrary.notation)
+    implementation(KotlinAndroidExtensions.ktxCoreLibrary.notation)
+    implementation(DaggerLibraries.daggerLibrary.notation)
+    kapt(DaggerLibraries.daggerCompiler.notation)
+
+    implementation(RxLibraries.rxLibrary.notation)
+    implementation(RxLibraries.rxAndroid.notation)
+
 }

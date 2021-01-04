@@ -1,6 +1,6 @@
-import com.logoped583st.buildsrc.libraries.dagger
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
+import com.logoped583st.buildsrc.libraries.DaggerLibraries
 
 plugins {
     `android-library`
@@ -16,5 +16,6 @@ android {
 dependencies {
     implementation(project(":dagger-component-connector"))
 
-    dagger()
+    implementation(DaggerLibraries.daggerLibrary.notation)
+    kapt(DaggerLibraries.daggerCompiler.notation)
 }

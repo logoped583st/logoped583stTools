@@ -1,17 +1,25 @@
 package com.example.recycler.adapter
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.example.recycler.RecyclerItem
+import com.example.recycler.viewholder.BaseListItem
+import com.example.recycler.viewholder.BaseViewHolder
 
-class ListAdapter<U : Any, I : RecyclerItem<U>, VH : RecyclerView.ViewHolder> : ListAdapter<I, VH>(diffUtil()) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        TODO("Not yet implemented")
+class ListAdapter<U : Any> : ListAdapter<BaseListItem<U>, BaseViewHolder<U>>(diffUtil<U, BaseListItem<U>>()) {
+
+    override fun getItemViewType(position: Int): Int = getItem(position)?.viewId
+                ?: throw IllegalArgumentException("item not found")
+
+    override fun onBindViewHolder(holder: BaseViewHolder<U>, position: Int) {
+        getItem(position)?.run {
+            holder.bind(this)
+        }
     }
 
-    override fun onBindViewHolder(holder: VH, position: Int) {
-        TODO("Not yet implemented")
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<U> {
+        return BaseViewHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
     }
+
 
 }

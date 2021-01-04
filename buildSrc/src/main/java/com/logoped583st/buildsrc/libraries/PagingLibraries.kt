@@ -1,22 +1,12 @@
 package com.logoped583st.buildsrc.libraries
 
-import org.gradle.api.artifacts.dsl.DependencyHandler
 
-private const val pagingPackage = "androidx.paging:paging-runtime"
-private const val pagingRxPackage = "androidx.paging:paging-rxjava3"
-private const val pagingVersion = "3.0.0-alpha11"
+object PagingLibraries {
+    private const val pagigngGroup = "androidx.paging"
+    private const val pagingRuntimeModule = "paging-runtime"
+    private const val pagingRxModule = "paging-rxjava3"
+    private const val pagingVersion = "3.0.0-alpha11"
 
-private enum class PagingLibraries(override val library: Library) : LibraryImporter {
-
-    Paging(Library(pagingPackage, pagingVersion)),
-
-    PagingRx(Library(pagingRxPackage, pagingVersion));
-
-    override val import: DependencyHandler.() -> Unit = {
-        implementation(library)
-    }
-}
-
-fun DependencyHandler.paging(){
-    importFromArray(PagingLibraries.values())
+    val pagingLibrary = Library(pagigngGroup, pagingRuntimeModule, pagingVersion)
+    val pagingRxLibrary = Library(pagigngGroup, pagingRxModule, pagingVersion)
 }

@@ -1,26 +1,32 @@
 package com.example.recycler.adapter
 
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
-import com.example.recycler.RecyclerItem
+import com.example.recycler.viewholder.BaseListItem
+import com.example.recycler.viewholder.BaseViewHolder
+import com.example.recycler.viewholder.RecyclerItem
 
-class PaginationAdapter<U : Any, I : RecyclerItem<U>, VH : RecyclerView.ViewHolder> : PagingDataAdapter<I, VH>(diffUtil<U, I>()) {
-    override fun onBindViewHolder(holder: VH, position: Int) {
-        TODO("Not yet implemented")
+class PaginationAdapter<U : Any> : PagingDataAdapter<BaseListItem<U>, BaseViewHolder<U>>(diffUtil<U, BaseListItem<U>>()) {
+
+    final override fun getItemViewType(position: Int): Int = getItem(position)?.viewId
+            ?: throw IllegalArgumentException("item not found")
+
+    final override fun onBindViewHolder(holder: BaseViewHolder<U>, position: Int) {
+        getItem(position)?.run {
+            holder.bind(this)
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        TODO("Not yet implemented")
+    final override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<U> {
+        return BaseViewHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
     }
 
 }
 
 
-fun <U : Any, D : RecyclerItem<U>> diffUtil() = object : DiffUtil.ItemCallback<D>() {
+internal fun <U : Any, D : RecyclerItem<U>> diffUtil() = object : DiffUtil.ItemCallback<D>() {
     override fun areItemsTheSame(oldItem: D, newItem: D): Boolean {
         return oldItem.unique == newItem.unique
     }
@@ -28,23 +34,4 @@ fun <U : Any, D : RecyclerItem<U>> diffUtil() = object : DiffUtil.ItemCallback<D
     override fun areContentsTheSame(oldItem: D, newItem: D): Boolean {
         return oldItem == newItem
     }
-}
-
-fun test() {
-    val adapter = PaginationAdapter<String, Test, TestVh>()
-    adapter.addLoadStateListener {
-        it.append as LoadState.Error
-    }
-    adapter.retry()
-}
-
-class TestVh(view: View) : RecyclerView.ViewHolder(view) {
-
-}
-
-data class Test(val a: String) : RecyclerItem<String> {
-
-    override val unique: String
-        get() = a
-
 }
