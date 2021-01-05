@@ -31,6 +31,7 @@ internal interface NetworkCoreModule {
     fun bindBearerInterceptor(interceptor: BearerInterceptor): Interceptor
 
     @Binds
+    @Singleton
     fun bindNetworkClient(client: NetworkClientImpl): NetworkClient
 
     @Binds

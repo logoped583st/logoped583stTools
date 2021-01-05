@@ -25,16 +25,15 @@ fun BaseExtension.setupConfig() {
         testInstrumentationRunner = test_instrumentation
     }
 
-//    buildTypes {
-//        getByName("release") {
-//            minifyEnabled(true)
-//            proguardFiles(
-//                    getDefaultProguardFile("proguard-android-optimize.txt"),
-//                    "proguard-rules.pro"
-//            )
-//        }
-//    }
-
+    buildTypes {
+        getByName("release") {
+            minifyEnabled(true)
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+            )
+        }
+    }
 
 }
 

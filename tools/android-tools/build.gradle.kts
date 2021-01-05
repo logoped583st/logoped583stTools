@@ -18,6 +18,8 @@ dependencies {
     implementation(project(":dagger-component-connector"))
 
     implementation(KotlinAndroidExtensions.ktxCoreLibrary.notation)
+    implementation(KotlinAndroidExtensions.ktxLifecycleLibrary.notation)
+
     implementation(DaggerLibraries.daggerLibrary.notation)
     kapt(DaggerLibraries.daggerCompiler.notation)
 }

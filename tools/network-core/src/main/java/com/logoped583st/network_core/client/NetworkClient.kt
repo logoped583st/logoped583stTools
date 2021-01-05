@@ -16,8 +16,8 @@ private const val readNetworkTimeOut = 10L
 private const val writeTimeOut = 15L
 
 interface NetworkClient {
-    fun retrofitClient(): Retrofit.Builder
-    fun okhttpClient(): OkHttpClient.Builder
+    fun retrofitClient(): Retrofit
+    fun okhttpClient(): OkHttpClient
 }
 
 internal class NetworkClientImpl @Inject constructor(
@@ -31,19 +31,19 @@ internal class NetworkClientImpl @Inject constructor(
             .create()
 
 
-    override fun okhttpClient(): OkHttpClient.Builder = OkHttpClient.Builder()
+    override fun okhttpClient(): OkHttpClient = OkHttpClient.Builder()
             .connectTimeout(connectNetworkTimeout, TimeUnit.SECONDS)
             .readTimeout(readNetworkTimeOut, TimeUnit.SECONDS)
             .writeTimeout(writeTimeOut, TimeUnit.SECONDS)
+            .build()
 
 
-    override fun retrofitClient(): Retrofit.Builder = Retrofit.Builder()
+    override fun retrofitClient(): Retrofit = Retrofit.Builder()
             .apply {
                 if (baseUrl.isBlank()) {
                     baseUrl(baseUrl)
                 }
                 addCallAdapterFactory(RxJava3CallAdapterFactory.createWithScheduler(requestScheduler))
                 addConverterFactory(GsonConverterFactory.create(gson))
-            }
-
+            }.build()
 }
