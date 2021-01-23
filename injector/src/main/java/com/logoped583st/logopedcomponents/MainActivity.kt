@@ -9,12 +9,6 @@ import javax.inject.Inject
 
 class MainActivity : Activity() {
 
-    @Inject
-    lateinit var encryption: Encryption
-
-    @Inject
-    lateinit var sharedPreferences: SharedPreferences
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

@@ -1,6 +1,6 @@
 package com.logoped583st.network_core.client
 
-import dagger.Lazy
+import com.logoped583st.network_core.interceptors.authorizationHeader
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response
@@ -9,20 +9,13 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 class TokenAuthenticator @Inject constructor(
-        private val refreshToken: Lazy<RefreshTokenHandler>,
-        private val networkClient: NetworkClient
+        private val refreshTokenHandler: RefreshTokenHandler,
 ) : Authenticator {
 
     override fun authenticate(route: Route?, response: Response): Request? {
 
-        val tokenRefreshHandler = refreshToken.get()
-                ?: throw RuntimeException("refresh api service is not initialized")
 
-        val tokenRefreshTokenService = networkClient.retrofitClient()
-                .build()
-                .create(tokenRefreshHandler.refreshTokenService)
-
-        val tokenResponse = tokenRefreshTokenService.refreshToken().execute()
+        val tokenResponse = refreshTokenHandler.refreshToken().execute()
 
         if (!tokenResponse.isSuccessful) {
             throw HttpException(tokenResponse)
@@ -30,11 +23,11 @@ class TokenAuthenticator @Inject constructor(
 
         return tokenResponse.body()?.let {
 
-            tokenRefreshHandler.onTokenRefresh(it)
+            refreshTokenHandler.onTokenRefresh(it)
 
             response.request
                     .newBuilder()
-                    .header("Authorization", it.token)
+                    .header(authorizationHeader, it.token)
                     .build()
         }
 

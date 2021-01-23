@@ -1,8 +1,11 @@
 rootProject.name = "LogopedComponents"
 include(":dagger-component-connector")
 
-include (":app")
+include (":injector")
 include(":shared-resources")
+
+//features
+include(":features:feature-stub")
 
 
 //Tools

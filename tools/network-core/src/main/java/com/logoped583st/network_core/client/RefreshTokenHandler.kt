@@ -4,13 +4,9 @@ import retrofit2.Call
 
 interface RefreshTokenHandler {
 
-    val refreshTokenService: Class<out RefreshTokenService>
+    fun refreshToken(): Call<out TokenResponse>
 
     fun onTokenRefresh(token: TokenResponse)
-}
-
-interface RefreshTokenService {
-    fun refreshToken(): Call<out TokenResponse>
 }
 
 interface TokenResponse {

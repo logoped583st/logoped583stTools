@@ -4,7 +4,7 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
 
-private const val authorizationHeader = "Authorization"
+internal const val authorizationHeader = "Authorization"
 private const val bearerPrefix = "Bearer"
 
 internal class BearerInterceptor @Inject constructor(
