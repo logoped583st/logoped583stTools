@@ -1,4 +1,4 @@
-rootProject.name = "LogopedBitbucket"
+rootProject.name = "logopedComponents"
 include(":dagger-component-connector")
 
 include (":injector")
@@ -16,6 +16,5 @@ include(":arch-core")
 include(":main-screen")
 include(":tools:dagger-component-holder")
 include(":features:authentication")
-include(":core")
 include(":user-management")
 include(":room")
