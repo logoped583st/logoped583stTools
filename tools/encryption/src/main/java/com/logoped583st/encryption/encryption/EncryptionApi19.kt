@@ -7,7 +7,7 @@ import javax.crypto.Cipher
 internal class EncryptionApi19(
         private val cipherRSA: Cipher,
         private val rsaKeyProvider: RSAKeyProvider,
-        private val keyAlias: String
+        private val keyAlias: String,
 ) : Encryption {
 
     override fun encryptBytes(bytes: ByteArray): ByteArray {

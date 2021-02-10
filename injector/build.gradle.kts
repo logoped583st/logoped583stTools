@@ -29,6 +29,8 @@ dependencies {
     implementation(project(":tools:encryption"))
     implementation(project(":tools:logger"))
     implementation(project(":tools:android-tools"))
+    implementation(project(":main-screen"))
+    implementation(project(":features:authentication"))
 
     implementation(UiLibraries.constraintLibrary.notation)
     implementation(UiLibraries.materialLibrary.notation)
@@ -38,6 +40,6 @@ dependencies {
     kapt(DaggerLibraries.daggerCompiler.notation)
 
     implementation(RxLibraries.rxLibrary.notation)
-    implementation(RxLibraries.rxAndroid.notation)
 
+    implementation(CiceroneLibraries.ciceroneLibrary.notation)
 }

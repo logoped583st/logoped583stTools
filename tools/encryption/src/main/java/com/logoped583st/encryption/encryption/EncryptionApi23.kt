@@ -12,7 +12,7 @@ import javax.crypto.spec.IvParameterSpec
 internal class EncryptionApi23(
         private val keyAlias: String,
         private val cipher: Cipher,
-        private val aesKeyProvider: AESKeyProvider
+        private val aesKeyProvider: AESKeyProvider,
 ) : Encryption {
 
     private val ivSize = 16

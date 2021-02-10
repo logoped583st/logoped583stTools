@@ -83,7 +83,7 @@ internal class EncryptionModule {
                     RSA_ENCRYPTION_ALGORITHM,
                     "AndroidOpenSSL")
         } else {
-            Cipher.getInstance("AES/CBC/PKCS7Padding",)
+            Cipher.getInstance("AES/CBC/PKCS7Padding")
         }
     }
 
@@ -103,7 +103,7 @@ internal class EncryptionModule {
     @Provides
     @Singleton
     fun provideByteEncryption(
-            kp: RSAKeyProvider, cipher: Cipher, keyAlias: String, aesKeyProvider: AESKeyProvider
+            kp: RSAKeyProvider, cipher: Cipher, keyAlias: String, aesKeyProvider: AESKeyProvider,
     ): Encryption {
         return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             EncryptionApi19(cipher, kp, keyAlias)

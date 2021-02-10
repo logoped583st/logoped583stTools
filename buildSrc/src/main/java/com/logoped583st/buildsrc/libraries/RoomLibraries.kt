@@ -7,7 +7,7 @@ object RoomLibraries {
     private const val roomKaptModule = "room-compiler"
     private const val roomRxModule = "room-rxjava3"
 
-    private const val roomVersion = "2.3.0-alpha04"
+    private const val roomVersion = "2.3.0-beta01"
 
     val roomLibrary = Library(roomGroup, roomModule, roomVersion)
     val roomCompilerLibrary = Library(roomGroup, roomKaptModule, roomVersion)

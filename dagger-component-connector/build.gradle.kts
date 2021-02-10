@@ -1,6 +1,6 @@
-import com.logoped583st.buildsrc.libraries.KotlinLibraries
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
+import com.logoped583st.buildsrc.libraries.*
 
 plugins {
     `android-library`
@@ -18,4 +18,6 @@ android {
 
 dependencies {
     implementation(KotlinLibraries.kotlinLibrary.notation)
+    implementation(CiceroneLibraries.ciceroneLibrary.notation)
+    implementation(RxLibraries.rxLibrary.notation)
 }

@@ -10,7 +10,7 @@ interface InterceptorFactory {
 
 enum class InterceptorType {
     Logging,
-    Bearer
+    Auth
 }
 
 @Target(
@@ -28,7 +28,7 @@ internal class InterceptorFactoryImpl @Inject constructor(
 
     override fun provideInterceptor(type: InterceptorType): Interceptor {
         return interceptors[type]
-                ?: throw IllegalArgumentException("interceptro $type doesn't exist")
+                ?: throw IllegalArgumentException("Interceptor ${type.name} doesn't exist")
     }
 
 }

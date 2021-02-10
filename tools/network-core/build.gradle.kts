@@ -1,7 +1,6 @@
 import com.logoped583st.buildsrc.libraries.*
 import com.logoped583st.buildsrc.setupJava8
 import com.logoped583st.buildsrc.setupSdkVersions
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `android-library`
@@ -32,4 +31,6 @@ dependencies {
 
     implementation(LoggingLibraries.timberLibrary.notation)
     implementation(DaggerLibraries.daggerLibrary.notation)
+    kapt(DaggerLibraries.daggerCompiler.notation)
+
 }

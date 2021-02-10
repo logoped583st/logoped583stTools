@@ -1,6 +1,5 @@
 package com.logoped583st.network_core.client
 
-import com.logoped583st.network_core.interceptors.authorizationHeader
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response
@@ -26,9 +25,6 @@ class TokenAuthenticator @Inject constructor(
             refreshTokenHandler.onTokenRefresh(it)
 
             response.request
-                    .newBuilder()
-                    .header(authorizationHeader, it.token)
-                    .build()
         }
 
     }

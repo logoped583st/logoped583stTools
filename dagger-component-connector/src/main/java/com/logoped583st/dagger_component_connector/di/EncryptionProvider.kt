@@ -9,4 +9,5 @@ interface Encryption {
     fun encryptBytes(bytes: ByteArray): ByteArray
 
     fun decryptBytes(bytes: ByteArray): ByteArray
+
 }

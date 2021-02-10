@@ -24,12 +24,6 @@ internal interface NetworkCoreModule {
     @Binds
     fun bindDateConverter(dateConverter: DateConverter): JsonDeserializer<Date>
 
-    @Singleton
-    @Binds
-    @IntoMap
-    @InterceptorKey(InterceptorType.Bearer)
-    fun bindBearerInterceptor(interceptor: BearerInterceptor): Interceptor
-
     @Binds
     @Singleton
     fun bindNetworkClient(client: NetworkClientImpl): NetworkClient
@@ -37,10 +31,6 @@ internal interface NetworkCoreModule {
     @Binds
     @Singleton
     fun interceptorFactory(interceptorFactory: InterceptorFactoryImpl): InterceptorFactory
-
-    @Binds
-    @Singleton
-    fun bindAuthenticator(authenticator: TokenAuthenticator): Authenticator
 
     @Module
     companion object {
